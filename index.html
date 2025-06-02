@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.0">
+    <title>Sun'iy Intellektga Kirish - Akademik Ish</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#3b82f6',
+                        accent: '#60a5fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        *{
+            overscroll-behavior: none;
+        }
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+            z-index: 40;
+        }
+        .sidebar-hidden {
+            transform: translateX(-100%);
+        }
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 35;
+        }
+        .sidebar-overlay.show {
+            display: block;
+        }
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        .nav-link:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            transform: translateX(4px);
+        }
+        .nav-link.active {
+            background-color: #3b82f6;
+            color: white;
+            border-left: 4px solid #1e40af;
+        }
+        .content-area {
+            margin-left: 280px;
+        }
+        @media (max-width: 1024px) {
+            .content-area {
+                margin-left: 0;
+            }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+        }
+        .student-info-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .info-item {
+            transition: all 0.3s ease;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.15);
+        }
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        .cover-page {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <header class="cover-page bg-gradient-to-br from-primary via-secondary to-accent text-white shadow-2xl relative overflow-hidden z-50 flex items-center justify-center">
+        <div class="header-decoration"></div>
+        <div class="container mx-auto px-6 py-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block p-1 bg-white/20 rounded-full mb-6">
+                    <div class="w-24 h-24 bg-white/30 rounded-full flex items-center justify-center">
+                        <span class="text-4xl font-bold">XN</span>
+                    </div>
+                </div>
+                <h1 class="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                    Introduction to Artificial Intelligence
+                </h1>
+                <h2 class="text-4xl md:text-5xl font-semibold mb-8 text-blue-100">XOJIAKBAR NASRIDDINOV</h2>
+
+                        <div class="text-center mb-4">
+                            <p class="text-3xl opacity-90">Unit 21: Introduction to AI</p>
+                        </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">                    
+                    <div class="student-info-card info-item rounded-xl p-6">
+                        <div class="flex flex-col items-center space-y-3">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-semibold text-lg">O'qituvchi</p>
+                                <p class="text-xl opacity-90">A'zamjon Boydedayev</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="student-info-card info-item rounded-xl p-6">
+                        <div class="flex flex-col items-center space-y-3">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-semibold text-lg">Guruh</p>
+                                <p class="text-xl opacity-90">24-213</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="student-info-card info-item rounded-xl p-6">
+                        <div class="flex flex-col items-center space-y-3">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-semibold text-lg">Talaba ID</p>
+                                <p class="text-xl opacity-90">240391</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <nav id="sidebar" class="sidebar fixed left-0 top-0 h-full w-72 bg-white shadow-2xl overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary">Mundarija</h3>
+                </div>
+                <button id="close-sidebar" class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="space-y-2">
+                <a href="#section-a" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-blue-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Sun'iy Intellektga Kirish</div>
+                            <div class="text-xs text-gray-500">SI asoslari va turlari</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-a2" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-green-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Foyda va Xavflar</div>
+                            <div class="text-xs text-gray-500">SI ning ijobiy va salbiy tomonlari</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-a3" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-purple-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Sanoat Tahlili</div>
+                            <div class="text-xs text-gray-500">Turli sohalarda SI qo'llanishi</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-a4" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-orange-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Ta'sirlar</div>
+                            <div class="text-xs text-gray-500">Iqtisodiy va ijtimoiy ta'sirlar</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-b" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-red-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Loyiha Maqsadlari</div>
+                            <div class="text-xs text-gray-500">Maqsadlarni aniqlash</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-b2" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-indigo-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Ma'lumotlar Yig'ish</div>
+                            <div class="text-xs text-gray-500">Ma'lumotlar tayyorlash</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-b3" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-pink-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Optimallashtirish</div>
+                            <div class="text-xs text-gray-500">Ma'lumotlarni takomillashtirish</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-b4" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-yellow-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">Samaradorlik Baholash</div>
+                            <div class="text-xs text-gray-500">Natijalarni baholash</div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#section-c" class="nav-link block px-4 py-3 rounded-lg text-sm font-medium border-l-4 border-transparent hover:border-teal-300">
+                    <div class="flex items-center space-x-3">
+                        <div>
+                            <div class="font-semibold">SI Yechimini Ishlab Chiqish</div>
+                            <div class="text-xs text-gray-500">Model yaratish</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-8 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                <h4 class="font-semibold text-sm mb-2">Loyiha Jarayoni</h4>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full" style="width: 100%"></div>
+                </div>
+                <p class="text-xs text-gray-600 mt-1">11/11 bo'lim tugallandi</p>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-area min-h-screen pb-8">
+        <div class="container mx-auto px-6 py-8">
+            
+            <section id="section-a" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">Sun'iy Intellektga Kirish</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Sun'iy Intellekt Nima?</h3>
+                        <p class="text-lg leading-relaxed">
+                            Sun'iy intellekt (SI) kompyuter tizimlarining odatda inson aql-idrokini talab qiladigan vazifalarni bajarish qobiliyatiga ega bo'lishini anglatadi, masalan, o'rganish, muammolarni hal qilish, qaror qabul qilish va idrok etish. SI ikki asosiy turga bo'linadi:
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold text-primary mb-4">Zaif SI (Tor SI)</h4>
+                            <p class="mb-4">Muayyan vazifalar uchun mo'ljallangan. Masalan, Siri yoki Alexa kabi virtual yordamchilar.</p>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Faqat bitta sohada yuqori samaradorlik</li>
+                                <li>• Boshqa sohalarga qobiliyatlarini o'tkaza olmaydi</li>
+                                <li>• Google Translate - faqat tarjima uchun</li>
+                                <li>• Avtomatlashtirilgan ishlab chiqarish robotlari</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold text-green-700 mb-4">Kuchli SI (Umumiy SI)</h4>
+                            <p class="mb-4">Inson darajasidagi kognitiv qobiliyatlarni taqlid qilishni maqsad qiladi.</p>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Turli sohalarda o'ylash va o'rganish</li>
+                                <li>• Hozircha faqat nazariy maqsad</li>
+                                <li>• Tadqiqotchilar faol ishlaydi</li>
+                                <li>• Hayotni tubdan o'zgartirish potentsiali</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">SI Tizimlari Funksionallik Darajasiga Ko'ra</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-yellow-500 pl-6 bg-yellow-50 p-4 rounded-r-lg">
+                                <h4 class="font-semibold text-lg mb-2">Reaktiv Mashinalar</h4>
+                                <p class="mb-2">Xotira yoki o'rganish qobiliyatiga ega emas, faqat ma'lum kiritmalarga javob beradi.</p>
+                                <p class="text-sm"><strong>Misollar:</strong> IBM Deep Blue shaxmat dasturi, termometr</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-blue-500 pl-6 bg-blue-50 p-4 rounded-r-lg">
+                                <h4 class="font-semibold text-lg mb-2">Cheklangan Xotira</h4>
+                                <p class="mb-2">Yaqin o'tmishdagi ma'lumotlarni qaror qabul qilish uchun ishlatadi.</p>
+                                <p class="text-sm"><strong>Misollar:</strong> Tesla avtopilot tizimi, chatbotlar</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-purple-500 pl-6 bg-purple-50 p-4 rounded-r-lg">
+                                <h4 class="font-semibold text-lg mb-2">Aql Nazariyasi</h4>
+                                <p class="mb-2">Inson his-tuyg'ulari va niyatlarini tushuna oladi (tadqiqot bosqichida).</p>
+                                <p class="text-sm"><strong>Maqsad:</strong> Stress va ruhiy salomatlik muammolarini boshqarishda yordam</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-red-500 pl-6 bg-red-50 p-4 rounded-r-lg">
+                                <h4 class="font-semibold text-lg mb-2">O'z-o'zini Anglaydigan SI</h4>
+                                <p class="mb-2">O'z mavjudligi, his-tuyg'ulari va fikrlaridan xabardor bo'lish.</p>
+                                <p class="text-sm"><strong>Holati:</strong> Faqat ilmiy fantastika doirasida</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">SI ning Asosiy Sohalari</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Mashinaviy O'rganish (MO)</h4>
+                                <p class="mb-3">Algoritmlar ma'lumotlardan o'rganib, bashorat yoki qaror qabul qiladi.</p>
+                                <div class="text-sm">
+                                    <strong>Misollar:</strong>
+                                    <ul class="mt-2 space-y-1">
+                                        <li>• Netflix kontent tavsiyalari</li>
+                                        <li>• Email spam filtrlar</li>
+                                        <li>• Kredit karta firibgarligini aniqlash</li>
+                                        <li>• Amazon mahsulot tavsiyalari</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Kompyuter Ko'rish</h4>
+                                <p class="mb-3">Mashinalarga vizual ma'lumotlarni tahlil qilish imkonini beradi.</p>
+                                <div class="text-sm">
+                                    <strong>Qo'llanishlar:</strong>
+                                    <ul class="mt-2 space-y-1">
+                                        <li>• Aeroportlardagi yuzni tanish</li>
+                                        <li>• Avtonom transport vositalari</li>
+                                        <li>• Tibbiy tasvir tahlili</li>
+                                        <li>• Sifat nazorati ishlab chiqarishda</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Chuqur O'rganish</h4>
+                                <p class="mb-3">MO'ning neyron tarmoqlardan foydalanadigan kichik sohasi.</p>
+                                <div class="text-sm">
+                                    <strong>Misollar:</strong>
+                                    <ul class="mt-2 space-y-1">
+                                        <li>• Tibbiy tasvir tahlili</li>
+                                        <li>• Nutqni tanish</li>
+                                        <li>• O'yinlarda qo'llash (AlphaGo)</li>
+                                        <li>• Tabiiy tilni qayta ishlash</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Tabiiy Tilni Qayta Ishlash (TTQ)</h4>
+                                <p class="mb-3">Inson va kompyuter o'rtasidagi muloqotni osonlashtiradi.</p>
+                                <div class="text-sm">
+                                    <strong>Vazifalar:</strong>
+                                    <ul class="mt-2 space-y-1">
+                                        <li>• Amazon chatbotlari</li>
+                                        <li>• Mashina tarjimasi</li>
+                                        <li>• His-tuyg'u tahlili</li>
+                                        <li>• Matn xulosasi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Sanoatda SI Qo'llanishi</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-3">Asosiy Sohalar:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• <strong>Chakana savdo:</strong> Walmart inventar bashorati</li>
+                                    <li>• <strong>Moliya:</strong> Mastercard firibgarlik aniqlash</li>
+                                    <li>• <strong>Sog'liqni saqlash:</strong> Bemor yozuvlari tahlili</li>
+                                    <li>• <strong>Transport:</strong> DHL yo'nalish optimizatsiyasi</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3">Natijalar:</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Amazon sotuvlarini 30% oshirish</li>
+                                    <li>• DHL yiliga 8 million litr yoqilg'i tejash</li>
+                                    <li>• Google DeepMind buyrak kasalligi bashorati</li>
+                                    <li>• Ishlab chiqarishni 25% oshirish</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-a2" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI'ning Foydalari, Xavf-xatarlari va Cheklovlari</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-green-600 mb-4">Foydalari</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Avtomatlashtirish</h4>
+                                <p class="mb-3">SI takroriy va odatiy vazifalarni avtomatlashtirib, inson resurslarini bo'shatadi.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Ishlab chiqarishni 25% oshirish</li>
+                                    <li>• Avtomobil ishlab chiqarishda robotlar</li>
+                                    <li>• Logistika optimizatsiyasi</li>
+                                    <li>• Mijozlarga xizmat chatbotlari</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Xarajatlarni Kamaytirish</h4>
+                                <p class="mb-3">SI jarayonlarni optimallashtirib, xarajatlarni kamaytiradi.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• FedEx va DHL yo'nalish optimizatsiyasi</li>
+                                    <li>• Energetikada iste'mol bashorati</li>
+                                    <li>• Ishlab chiqarishda chiqindilarni kamaytirish</li>
+                                    <li>• Yiliga millionlab tejamkorlik</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Qaror Qabul Qilishni Yaxshilash</h4>
+                                <p class="mb-3">SI katta ma'lumotlar to'plamlarini tahlil qilib, ma'lumotlarga asoslangan tushunchalar beradi.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• IBM Watson tibbiy tashxis</li>
+                                    <li>• Tashxis aniqligini 18% oshirish</li>
+                                    <li>• Moliyada firibgarlik aniqlash</li>
+                                    <li>• Biznesda bozor tahlili</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Shaxsiylashtirish</h4>
+                                <p class="mb-3">SI foydalanuvchi ma'lumotlarini tahlil qilib, shaxsiy tajribalar taqdim etadi.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Amazon va Alibaba tavsiyalari</li>
+                                    <li>• Spotify va Netflix pleylistlari</li>
+                                    <li>• Ta'limda shaxsiy dasturlar</li>
+                                    <li>• Mijozlar ishtirokini oshirish</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-red-600 mb-4">Xavf-xatarlar</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Axloqiy Muammolar</h4>
+                                <p class="mb-3">Noto'g'ri yoki noxolis ma'lumotlar bilan o'qitilgan SI noxolis natijalarga olib kelishi mumkin.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Ishga qabul qilishda kamsitish</li>
+                                    <li>• Adliya tizimlarida noxolis baholash</li>
+                                    <li>• Ijtimoiy tarmoqlarda qutblanish</li>
+                                    <li>• Algoritmik noto'g'ri qarashlar</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Ma'lumotlar Maxfiyligi</h4>
+                                <p class="mb-3">SI katta ma'lumotlar to'plamlariga tayanadi, bu maxfiylik muammolarini keltirib chiqaradi.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Yuzni tanish tizimlari maxfiylik buzish</li>
+                                    <li>• Sog'liqni saqlashda bemor ma'lumotlari</li>
+                                    <li>• GDPR qoidalarini buzish</li>
+                                    <li>• Kuzatuv tizimlarining kuchayishi</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Ish O'rinlarini Yo'qotish</h4>
+                                <p class="mb-3">Avtomatlashtirish takroriy vazifalarda ish o'rinlarini yo'qotishiga olib kelishi mumkin.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• 2030 yilgacha 6 million ish o'rni</li>
+                                    <li>• Chakana savdoda avtomatlashtirish</li>
+                                    <li>• Ishlab chiqarishda robotlar</li>
+                                    <li>• Transportda avtonom transport</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Xavfsizlik Xavf-xatarlari</h4>
+                                <p class="mb-3">SI tizimlari kiberhujumlarga va noto'g'ri foydalanishga zaifdir.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Moliyada bozor manipulyatsiyasi</li>
+                                    <li>• Avtonom qurollar xavfi</li>
+                                    <li>• Transport hodisalari</li>
+                                    <li>• Kiberxavfsizlik zaifliklar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-orange-600 mb-4">Cheklovlar</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Yuqori Xarajatlar</h4>
+                                <p class="mb-3">SI tizimlarini joriy qilish va saqlash katta investitsiyalarni talab qiladi.</p>
+                                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                    <div>
+                                        <strong>Infrastruktura:</strong> Serverlar, ma'lumot markazlari
+                                    </div>
+                                    <div>
+                                        <strong>Kadrlar:</strong> SI mutaxassislarini yollash va o'qitish
+                                    </div>
+                                    <div>
+                                        <strong>Saqlash:</strong> SI dasturlarini ishlab chiqish va saqlash
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-pink-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Murakkablik</h4>
+                                <p class="mb-3">SI tizimlarini ishlab chiqish, o'qitish va saqlash murakkab bo'lib, yuqori malakali mutaxassislarni talab qiladi.</p>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Sog'liqni saqlashda eski tizimlar bilan integratsiya</li>
+                                    <li>• Katta ma'lumotlar to'plamlarini talab qilish</li>
+                                    <li>• Doimiy e'tibor va saqlash</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Misollar va Yechimlar</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Elektron Tijorat</h4>
+                                <p class="text-sm">SI tavsiyalari sotuvlarni oshiradi, lekin maxfiylik muammolarini keltirib chiqaradi.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Transport</h4>
+                                <p class="text-sm">Avtonom transport xavfsizlikni yaxshilaydi, lekin axloqiy dilemmalarni keltirib chiqaradi.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Moliya</h4>
+                                <p class="text-sm">SI firibgarlikni aniqlaydi, lekin mustahkam kiberxavfsizlikni talab qiladi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-a3" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">Sanoatlardagi SI Foydalari, Xavf-xatarlari va Cheklovlarining Tahlili</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-green-600 mb-4">Chakana Savdo</h3>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Foydalari</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>• SI shaxsiylashtirish orqali sotuvlarni oshiradi</li>
+                                        <li>• Amazon inventarni 28% kamaytiradi</li>
+                                        <li>• Chatbotlar mijozlar so'rovlarining 75%ni boshqaradi</li>
+                                        <li>• Ta'minot zanjirlarini optimallashtiradi</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Xavf-xatarlar va Cheklovlar</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>• Mijozlarning 62%i ma'lumotlar noto'g'ri ishlatilishidan xavotirda</li>
+                                        <li>• Noxolis algoritmlar ayrim guruhlarni chetlab o'tishi</li>
+                                        <li>• Yuqori joriy etish xarajatlari</li>
+                                        <li>• Noto'g'ri bashoratlar inventar yetishmovchiligiga olib keladi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-white rounded-lg">
+                                <p class="text-sm"><strong>Ta'siri:</strong> SI daromadni oshiradi, lekin maxfiylik va noxolislik muammolarini hal qilish uchun qat'iy ma'lumot boshqaruvi talab qilinadi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Transport</h3>
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Foydalari</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>• Tesla avtopiloti baxtsiz hodisalarni 45% kamaytiradi</li>
+                                        <li>• Logistika optimallashtirish UPS'ga yiliga 1.8 milliard dollar tejaydi</li>
+                                        <li>• SI xavfsizlik va samaradorlikni oshiradi</li>
+                                        <li>• Yo'l harakati optimizatsiyasi</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Xavf-xatarlar va Cheklovlar</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>• Avtonom transport axloqiy muammolarni keltirib chiqaradi</li>
+                                        <li>• Kiberxavfsizlik zaifliklar</li>
+                                        <li>• Yuqori ilmiy-tadqiqot xarajatlari</li>
+                                        <li>• Faqat 38% jamoatchilik avtonom transportga ishonadi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-white rounded-lg">
+                                <p class="text-sm"><strong>Ta'siri:</strong> SI transportni o'zgartiradi, lekin axloqiy ramkalar, xavfsizlik choralari va jamoatchilik ishonchi talab qilinadi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-purple-600 mb-4">Moliyaviy Xizmatlar</h3>
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Foydalari</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>• SI firibgarlikni aniqlashda yiliga 18 milliard dollar tejaydi</li>
+                                        <li>• Wealthfront kabi robo-maslahatchilar xizmatlarni demokratlashtiradi</li>
+                                        <li>• Kredit riskini baholash</li>
+                                        <li>• Algoritmik savdo samaradorligi</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Xavf-xatarlar va Cheklovlar</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>• Kredit rad etishlarining 22%i SI noxolisligi bilan bog'liq</li>
+                                        <li>• Ma'lumotlar buzilishi moliyaviy xavfsizlikka tahdid</li>
+                                        <li>• Murakkab SI modellari malakali mutaxassislarni talab qiladi</li>
+                                        <li>• Savdo algoritmlaridagi xatolar bozor beqarorligiga olib keladi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-white rounded-lg">
+                                <p class="text-sm"><strong>Ta'siri:</strong> SI samaradorlikni oshiradi, lekin adolatli algoritmlar va shaffoflikni talab qiladi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-orange-700 mb-4">Davlat Xizmatlari</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-lg mb-3">Foydalari</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Bashoratli politsiya jinoyatni 12% kamaytiradi</li>
+                                    <li>• SI sog'liqni saqlashda bemorlar triajini yaxshilaydi</li>
+                                    <li>• Resurslarni optimallashtiradi</li>
+                                    <li>• Xizmat ko'rsatish samaradorligini oshiradi</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-3">Xavf-xatarlar va Cheklovlar</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• Yuzni tanish tizimlari ayrim etnik guruhlar uchun 32% xato darajasiga ega</li>
+                                    <li>• Maxfiylik buzilishi jamoatchilik ishonchini pasaytiradi</li>
+                                    <li>• Moliyaviy cheklovlar va texnik tajriba etishmovchiligi</li>
+                                    <li>• SI ga haddan tashqari qaramlik inson qaror qabul qilishni kamaytiradi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-white rounded-lg">
+                            <p class="text-sm"><strong>Ta'siri:</strong> SI xizmat ko'rsatishni yaxshilaydi, lekin adolatli natijalar uchun axloqiy nazorat va shaffoflik talab qilinadi.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-a4" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI'ning Iqtisodiy, Ijtimoiy va Axloqiy Ta'sirlari</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-green-600 mb-4">Iqtisodiy Ta'sir</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Ijobiy Ta'sirlar</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• <strong>Chakana savdo:</strong> 2030 yilgacha sektorga 600 milliard dollar qo'shadi</li>
+                                    <li>• <strong>Transport:</strong> Logistika xarajatlarini 22% kamaytiradi</li>
+                                    <li>• <strong>Moliya:</strong> Banklarga yiliga 300 milliard dollar tejaydi</li>
+                                    <li>• <strong>Davlat:</strong> Hukumatlarga yiliga 1.5 trillion dollar tejaydi</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Salbiy Ta'sirlar</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• <strong>Ish o'rinlari:</strong> 2035 yilgacha 2.5 million yuk tashish ish o'rni yo'qoladi</li>
+                                    <li>• <strong>Kichik biznes:</strong> Yuqori xarajatlar to'siq bo'ladi</li>
+                                    <li>• <strong>Bozor beqarorligi:</strong> SI savdo xatolari</li>
+                                    <li>• <strong>Joriy etish:</strong> Yuqori dastlabki investitsiyalar</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Asosiy Statistik Ko'rsatkichlar</h4>
+                            <div class="grid md:grid-cols-4 gap-4">
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <h5 class="font-bold text-2xl text-blue-600">600B$</h5>
+                                    <p class="text-sm">Chakana savdoga qo'shiladigan qiymat</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <h5 class="font-bold text-2xl text-green-600">22%</h5>
+                                    <p class="text-sm">Logistika xarajatlarini kamaytirish</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <h5 class="font-bold text-2xl text-purple-600">300B$</h5>
+                                    <p class="text-sm">Banklarga yillik tejamkorlik</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg text-center">
+                                    <h5 class="font-bold text-2xl text-orange-600">1.5T$</h5>
+                                    <p class="text-sm">Hukumatlarga yillik tejamkorlik</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-purple-600 mb-4">Ijtimoiy Ta'sir</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Chakana Savdo</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Ijobiy ta'sirlar:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• Shaxsiylashtirilgan xarid tajribalari mijozlar qoniqishini oshiradi</li>
+                                            <li>• Mahsulotlarga oson kirish imkoniyati</li>
+                                            <li>• 24/7 mijozlarga xizmat ko'rsatish</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Muammolar:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• Mijozlarning 68%i ma'lumotlar noto'g'ri ishlatilishidan xavotirda</li>
+                                            <li>• SI kam daromadli guruhlarni chetlab o'tishi</li>
+                                            <li>• Ijtimoiy qutblanishni kuchaytirish</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Transport</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Yaxshilanishlar:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• Avtonom transport baxtsiz hodisalarni 35% kamaytiradi</li>
+                                            <li>• Yo'l xavfsizligini oshirish</li>
+                                            <li>• Transport xarajatlarini kamaytirish</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Muammolar:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• Ish o'rinlari yo'qolishi</li>
+                                            <li>• Past jamoatchilik ishonchi (42%)</li>
+                                            <li>• Ijtimoiy muammolarni keltirib chiqarish</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Moliyaviy Xizmatlar</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Imkoniyatlar:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• SI robo-maslahatchilari moliyaviy xizmatlarga kirishni kengaytiradi</li>
+                                            <li>• Arzon moliyaviy maslahatlar</li>
+                                            <li>• Tez kredit qarorlari</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Xavflar:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• Noxolis algoritmlar tengsizlikni oshiradi</li>
+                                            <li>• Ozchiliklarga kredit rad etishlarining 18%i SI noxolisligi bilan bog'liq</li>
+                                            <li>• Moliyaviy kamsitish</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Davlat Xizmatlari</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Xizmat yaxshilanishi:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• SI favqulodda javob vaqtlarini yaxshilaydi</li>
+                                            <li>• Samarali resurs taqsimoti</li>
+                                            <li>• Jamoat xavfsizligini oshirish</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Adolat masalalari:</h5>
+                                        <ul class="space-y-1 text-sm">
+                                            <li>• Yuzni tanish xatolari marginal guruhlarga zarar yetkazadi</li>
+                                            <li>• Kuzatuv tizimlarining kuchayishi</li>
+                                            <li>• Maxfiylik huquqlarining buzilishi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-red-600 mb-4">Axloqiy Ta'sir</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Asosiy Axloqiy Muammolar</h4>
+                                <ul class="space-y-3 text-sm">
+                                    <li>• <strong>Chakana savdo:</strong> Tushuntiriladigan SI (XAI) ma'lumotlar ishlatilishini aniqlashtirib, maxfiylik muammolarini yumshatadi</li>
+                                    <li>• <strong>Transport:</strong> Avtonom transport vositalari qaror qabul qilish uchun axloqiy yo'riqnomalar talab qiladi</li>
+                                    <li>• <strong>Moliya:</strong> SI modellarida adolat muhim. Muntazam auditlar va XAI ishonchni oshiradi</li>
+                                    <li>• <strong>Davlat:</strong> Kuzatuv va politsiyada axloqiy SI shaffoflikni talab qiladi</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Yechimlar va Tavsiyalar</h4>
+                                <ul class="space-y-3 text-sm">
+                                    <li>• <strong>Shaffoflik:</strong> XAI kabi printsiplar va GDPR kabi qoidalar</li>
+                                    <li>• <strong>Axloqiy nazorat:</strong> Mustahkam boshqaruv va doimiy baholash</li>
+                                    <li>• <strong>Adolatli algoritmlar:</strong> Noxolislikni kamaytirish choralari</li>
+                                    <li>• <strong>Mas'uliyatli innovatsiya:</strong> Inson va texnik qobiliyatlarga sarmoya</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Xulosa va Kelajak Istiqbollari</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Asosiy Xulosa</h4>
+                                <p class="text-sm">SI'ning o'zgartiruvchi salohiyati ulkan, lekin hal qilinmagan xavf-xatarlar tengsizlikni kuchaytirishi va ishonchni pasaytirishi mumkin.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Talab Qilinadigan Choralar</h4>
+                                <p class="text-sm">Axloqiy nazorat, mustahkam boshqaruv va doimiy baholash barqaror o'sish uchun muhimdir.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Muvozanat</h4>
+                                <p class="text-sm">Innovatsiyani mas'uliyat bilan muvozanatlash va ijobiy ta'sirni xavf-xatarlardan ustun qilish zarur.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-b" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI Loyihasining Maqsadlarini Aniqlash</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Yurak Kasalligi Xavfini Mashinaviy O'rganish Yordamida Bashorat Qilish</h3>
+                        <p class="text-lg leading-relaxed">
+                            AI yechimlari firmasidagi stajirovka doirasida sog'liqni saqlash innovatsion loyihasiga hissa qo'shilmoqda. Vazifa – yurak kasalligi xavfi yuqori bo'lgan shaxslarni aniqlashda shifokorlarga yordam berish. Buning uchun UCI Yurak Kasalligi ma'lumotlar to'plamidan foydalanib, mashinaviy o'rganish modeli ishlab chiqiladi.
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Loyiha Haqida Umumiy Ma'lumot</h3>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <p class="mb-4">
+                                Yurak kasalligi global sog'liqni saqlash muammosi bo'lib, erta aniqlash o'lim va uzoq muddatli sog'liq muammolarini sezilarli darajada kamaytiradi. SI va ma'lumotlar fanidan foydalanib, sog'liqni saqlash provayderi yuqori xavfli bemorlarni birinchi o'ringa qo'yish, davolash resurslarini optimallashtirish va shoshilinch qabullarni kamaytirishni maqsad qiladi.
+                            </p>
+                            <p>
+                                Sizning rolingiz o'lchanadigan maqsadlarni aniqlash, yuqori sifatli ma'lumotlarni tayyorlash va SI ishlab chiqish jarayonida axloqiy talablarga rioya qilishni ta'minlashdan iborat. Natijada chiqadigan model klinisyenlere tezroq va aniqroq qarorlar qabul qilishda yordam beradi, ayniqsa resurslar cheklangan muhitlarda.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">SMART Maqsadlar</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Maqsad 1: Logistik Regressiya Yordamida Yurak Kasalligi Xavfini Bashorat Qilish</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Maxsus:</h5>
+                                        <p class="text-sm">Yosh, xolesterin darajasi, qon bosimi, ko'krak og'rig'i turi va EKG natijalari kabi xususiyatlarga asoslangan ikkilik tasnif modelini ishlab chiqish.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">O'lchanadigan:</h5>
+                                        <p class="text-sm">Model test ma'lumotlar to'plamida ≥85% AUC balli va ≥80% aniqlik darajasiga erishishi kerak.</p>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-3 gap-4 mt-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Erishiladigan:</h5>
+                                        <p class="text-sm">UCI ma'lumotlar to'plami tuzilgan va yurak kasalligi bilan bog'liq klinik ko'rsatkichlarni o'z ichiga oladi.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Dolzarb:</h5>
+                                        <p class="text-sm">Yurak kasalligi xavfini erta bashorat qilish proaktiv aralashuvlarga yo'naltiradi.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
+                                        <p class="text-sm">Modelni ishlab chiqish 4 hafta ichida yakunlanadi.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Maqsad 2: Yuqori Sifatli va Axloqiy Talablarga Mos Ma'lumotlarni Tayyorlash</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Maxsus:</h5>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Yo'qolgan qiymatlarni boshqarish</li>
+                                            <li>• Kategorik xususiyatlarni kodlash</li>
+                                            <li>• Raqamli xususiyatlarni masshtablash</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">O'lchanadigan:</h5>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• <1% yo'qolgan qiymatlar</li>
+                                            <li>• Barcha kategorik xususiyatlar kodlangan</li>
+                                            <li>• Raqamli xususiyatlar [0, 1] diapazonida</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
+                                    <p class="text-sm">Ma'lumotlarni tayyorlash jarayoni birinchi 7 kun ichida yakunlanadi.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Maqsad 3: Xususiyatlarning Muhimligi va Korrelatsiya Tahlilini Amalga Oshirish</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Maxsus:</h5>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Korrelatsiya matritsasi</li>
+                                            <li>• Model koeffitsientlari</li>
+                                            <li>• Permutatsiyaga asoslangan xususiyat muhimligi</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">O'lchanadigan:</h5>
+                                        <p class="text-sm">Kamida 5 muhim xususiyatni aniqlash va tartiblash (ko'krak og'rig'i turi, xolesterin, yosh, qon bosimi).</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
+                                    <p class="text-sm">Xususiyatlarni tanlash va tahlil 2-haftaning oxiriga qadar yakunlanadi.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Maqsad 4: Ma'lumotlardan Axloqiy Foydalanishni Ta'minlash</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Maxsus:</h5>
+                                        <p class="text-sm">Jins va yosh kabi xususiyatlarda potentsial noxolislikni aniqlash va yumshatish.</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">O'lchanadigan:</h5>
+                                        <p class="text-sm">Guruhlar bo'yicha bashorat ishlashida >10% farq ko'rsatadigan modellardan qochish.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
+                                    <p class="text-sm">Adolat tekshiruvlari 4-haftaga qadar integratsiya qilinadi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Maqsadli O'zgaruvchilar</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Bog'liq O'zgaruvchi (Maqsad)</h4>
+                                <p class="mb-2"><strong>target</strong> → Yurak kasalligi mavjudligini ko'rsatadi</p>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 0 = Yurak kasalligi yo'q</li>
+                                    <li>• 1 = Yurak kasalligi mavjud</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Mustaqil O'zgaruvchilar</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div>• yosh – Yillarda yosh</div>
+                                    <div>• jins – Biologik jins</div>
+                                    <div>• cp – Ko'krak og'rig'i turi</div>
+                                    <div>• trestbps – Qon bosimi</div>
+                                    <div>• chol – Xolesterin darajasi</div>
+                                    <div>• fbs – Qon shakar darajasi</div>
+                                    <div>• restecg – EKG natijalari</div>
+                                    <div>• thalach – Yurak urish tezligi</div>
+                                    <div>• exang – Mashq angina</div>
+                                    <div>• oldpeak – ST depressiyasi</div>
+                                    <div>• slope, ca, thal – Qo'shimcha ko'rsatkichlar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-4">Loyiha Xususiyatlari</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Axloqiy Talablar</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Yuqori sifatli, anonimlashtirilgan ma'lumotlar</li>
+                                    <li>• Tushuntiriladigan quvur liniyasi</li>
+                                    <li>• Adolat metrikalarini joriy qilish</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Texnik Talablar</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Logistik regressiya modeli</li>
+                                    <li>• Python va Scikit-learn</li>
+                                    <li>• Cross-validation</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Klinik Ahamiyat</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Klinisyenlarni qo'llab-quvvatlash</li>
+                                    <li>• Tushuntiriladigan natijalar</li>
+                                    <li>• Real dunyoda foydalanishga mos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-b2" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI Yechimi Uchun Tegishli Ma'lumotlar To'plamlarini Yig'ish va Tayyorlash</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Loyiha Konteksti</h3>
+                        <p class="text-lg leading-relaxed">
+                            AI yechimlari firmasidagi stajirovka doirasida bemor ma'lumotlaridan foydalanib yurak kasalligi xavfini bashorat qilish uchun sog'liqni saqlashga yo'naltirilgan mashinaviy o'rganish loyihasi ishlab chiqildi. UCI Yurak Kasalligi ma'lumotlar to'plami tuzilgan tabiati, klinik ahamiyati va logistik regressiya kabi nazorat ostidagi o'rganish modellariga mosligi tufayli tanlandi.
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Ma'lumotlar Turi va Tuzilishi</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Ma'lumotlar Xususiyatlari</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• <strong>Format:</strong> CSV (vergul bilan ajratilgan qiymatlar)</li>
+                                    <li>• <strong>Turi:</strong> Tuzilgan ma'lumotlar</li>
+                                    <li>• <strong>O'zgaruvchilar:</strong> Raqamli va kategorik aralashmasi</li>
+                                    <li>• <strong>Platformadan mustaqil:</strong> Pandas bilan oson import</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">Besh V Tahlili</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>• <strong>Hajm:</strong> 300 ta yozuv (prototip sinovi uchun)</li>
+                                    <li>• <strong>Xilma-xillik:</strong> Raqamli va kategorik xususiyatlar</li>
+                                    <li>• <strong>Tezlik:</strong> Statik tarixiy ma'lumotlar</li>
+                                    <li>• <strong>Haqiqiylik:</strong> Toza va ishonchli</li>
+                                    <li>• <strong>Qiymat:</strong> Yuqori klinik ahamiyat</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Ma'lumotlarni Yig'ish va Sifatni Ta'minlash</h3>
+                        
+                        <div class="bg-yellow-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Manba va Axloqiy Foydalanish</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="font-medium mb-2">Manba:</h5>
+                                    <p class="text-sm">UCI Mashinaviy O'rganish Repozitoriysi – ishonchli manba, ma'lumotlarning haqiqiyligini ta'minlaydi.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Axloqiy foydalanish:</h5>
+                                    <p class="text-sm">Ma'lumotlar anonimlashtirilgan, ommaviy foydalanish uchun ochiq va maxfiylik standartlariga mos keladi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Ma'lumotlarni Tayyorlash Jarayoni</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-red-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">A. Ma'lumotlarni Tozalash</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Tekshirilgan elementlar:</h5>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Yo'qolgan qiymatlar (UCI'da muhim yo'qolgan qiymatlar yo'q)</li>
+                                            <li>• Ma'lumot turlari mustahkamligi</li>
+                                            <li>• Anomaliyalarni boshqarish (IQR usuli)</li>
+                                            <li>• Dublikatlar (agar mavjud bo'lsa, olib tashlandi)</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Kod namunasi:</h5>
+                                        <div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
+                                            <pre>import pandas as pd
+import numpy as np
+
+# Ma'lumotlarni yuklash
+df = pd.read_csv('heart_disease.csv')
+
+# Yo'qolgan qiymatlarni tekshirish
+print(df.isnull().sum())
+
+# Dublikatlarni olib tashlash
+df = df.drop_duplicates()</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">B. Ma'lumotlarni Transformatsiya Qilish</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="font-medium mb-2">Kategorik kodlash:</h5>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Bir issiq kodlash: Tartibsiz o'zgaruvchilar uchun</li>
+                                            <li>• Ko'krak og'rig'i turi, jins kabi xususiyatlar</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium mb-2">Xususiyatlarni masshtablash:</h5>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• Min-Max masshtablash: [0, 1] diapazoniga</li>
+                                            <li>• Normallashtirish: Mutanosib hissa uchun</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Xususiyatlar Muhandisligi va Tanlash</h3>
+                        
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">Yaratilgan xususiyatlar:</h4>
+                                    <p class="text-sm mb-2">Model tushuntiriladiganligini saqlash uchun yangi xususiyatlar qo'shilmadi.</p>
+                                    
+                                    <h4 class="font-semibold text-lg mb-3 mt-4">Xususiyat tahlili:</h4>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Korrelatsiya matritsasi</li>
+                                        <li>• Logistik regressiya koeffitsientlari</li>
+                                        <li>• Xususiyat muhimligini tartiblash</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-3">O'zgaruvchilar:</h4>
+                                    <div class="text-sm">
+                                        <p class="mb-2"><strong>Bog'liq o'zgaruvchi:</strong></p>
+                                        <p class="mb-3">target (ikkilik tasnif: 0 = yo'q, 1 = mavjud)</p>
+                                        
+                                        <p class="mb-2"><strong>Mustaqil o'zgaruvchilar:</strong></p>
+                                        <p>Yosh, jins, xolesterin, qon bosimi, ko'krak og'rig'i turi va boshqalar.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Ma'lumotlarni Bo'lish</h3>
+                        
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">O'quv/Test/Tasdiqlash Bo'linishi</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <span class="text-xl font-bold">60%</span>
+                                    </div>
+                                    <p class="text-sm font-medium">O'quv</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <span class="text-xl font-bold">20%</span>
+                                    </div>
+                                    <p class="text-sm font-medium">Tasdiqlash</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <span class="text-xl font-bold">20%</span>
+                                    </div>
+                                    <p class="text-sm font-medium">Test</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-sm">
+                                <p><strong>Takrorlanadiganlik:</strong> Scikit-learn'dagi train_test_split() da sobit tasodifiy urug' ishlatildi.</p>
+                                <p><strong>Stratifikatsiya:</strong> Sinf muvozanatini ta'minlash uchun maqsad bo'yicha stratifikatsiyalangan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-4">Xavfsizlik, Axloq va Qonuniy Mulohazalar</h3>
+                        <div class="grid md:grid-cols-4 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Anonimlik</h4>
+                                <p class="text-sm">Ma'lumotlar anonimlashtirilgan – shaxsiy identifikatorlar yo'q.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Adolat Tekshiruvlari</h4>
+                                <p class="text-sm">Jins yoki yosh noxolisligi natijalarni egri chizmasligini ta'minlash.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Qonuniy Rioya</h4>
+                                <p class="text-sm">Ma'lumotlarni himoya qilish printsiplariga (GDPR uslubi) rioya qiladi.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Kirishni Boshqarish</h4>
+                                <p class="text-sm">Ma'lumotlar faqat ta'lim va axloqiy SI o'qitish maqsadlari uchun ishlatildi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-b3" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI Yechimining Sifatini Optimallashtirish Uchun Ma'lumotlar To'plamlarini Ko'rib Chiqish va Takomillashtirish</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Loyiha Konteksti</h3>
+                        <p class="text-lg leading-relaxed">
+                            Ushbu ko'rib chiqish yurak kasalligi xavfi yuqori shaxslarni aniqlashga qaratilgan bashoratli SI loyihasi doirasida amalga oshirildi. Asosiy maqsad – bashorat ishlashini yaxshilash, adolat, ishonchlilik va foydalanish qulayligini ta'minlash uchun ma'lumotlar to'plamini takomillashtirish edi.
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Dastlabki Ma'lumotlar To'plamini Ko'rib Chiqish</h3>
+                        
+                        <div class="bg-yellow-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Ko'rib Chiqish Natijalari</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div>
+                                    <h5 class="font-medium mb-2">Ma'lumotlar to'liqligi:</h5>
+                                    <p class="text-sm">Ma'lumotlar to'plamida muhim yo'qolgan qiymatlar yo'qligi tasdiqlandi.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Ma'lumot turlari:</h5>
+                                    <p class="text-sm">O'zgaruvchilar mos ravishda tiplanganligi tekshirildi (butun sonlar, suzuvchi nuqtalar, kategoriyalar).</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Taqsimlanish tekshiruvi:</h5>
+                                    <p class="text-sm">Anomaliyalar va egri taqsimlanishlarni aniqlash uchun vizual vositalar ishlatildi.</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-white rounded-lg">
+                                <p class="text-sm"><strong>Natija:</strong> Ma'lumotlar to'plami asosan to'liq edi, lekin ba'zi xususiyatlar SI modellashtirishda foydali bo'lishi uchun normallashtirish va kodlashni talab qildi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Takomillashtirish Bosqichlari</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">A. Kategorik Kodlash</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm mb-3">cp (ko'krak og'rig'i turi), thal va slope kabi tartibsiz kategorik o'zgaruvchilarga bir issiq kodlash qo'llanildi.</p>
+                                        <p class="text-sm">Ushbu transformatsiya model tushuntiriladiganligini oshirdi va logistik regressiya modeliga har bir kategoriyani mustaqil ravishda ko'rib chiqish imkonini berdi.</p>
+                                    </div>
+                                    <div>
+                                        <div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
+                                            <pre>from sklearn.preprocessing import OneHotEncoder
+
+# Kategorik xususiyatlarni kodlash
+categorical_features = ['cp', 'thal', 'slope']
+encoder = OneHotEncoder(sparse=False)
+encoded_features = encoder.fit_transform(df[categorical_features])</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">B. Xususiyatlarni Masshtablash</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm mb-3">chol (xolesterin), thalach (maksimal yurak urish tezligi) va oldpeak (ST depressiyasi) kabi raqamli xususiyatlarga Min-Max masshtablash qo'llanildi.</p>
+                                        <p class="text-sm">Bu barcha xususiyatlarning o'qitish jarayonida teng ta'sirga ega bo'lishini ta'minladi.</p>
+                                    </div>
+                                    <div>
+                                        <div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
+                                            <pre>from sklearn.preprocessing import MinMaxScaler
+
+# Raqamli xususiyatlarni masshtablash
+scaler = MinMaxScaler()
+numerical_features = ['chol', 'thalach', 'oldpeak']
+df[numerical_features] = scaler.fit_transform(df[numerical_features])</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">C. Anomaliyalarni Boshqarish</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm mb-3">trestbps va chol kabi o'zgaruvchilarda anomaliyalarni aniqlash uchun Interquartile Range (IQR) usuli ishlatildi.</p>
+                                        <p class="text-sm">Anomaliyalar real klinik ekstremallarni aks ettirgan joylarda saqlanib qoldi.</p>
+                                    </div>
+                                    <div>
+                                        <div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
+                                            <pre># IQR usuli bilan anomaliyalarni aniqlash
+Q1 = df['chol'].quantile(0.25)
+Q3 = df['chol'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Anomaliyalarni filtrlash
+df_clean = df[(df['chol'] >= lower_bound) & (df['chol'] <= upper_bound)]</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-orange-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg mb-3">D. Xususiyatlar Muhandisligi</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm mb-3">xolesterin × oldpeak ko'paytirilishi orqali risk_score deb nomlangan yangi xususiyat joriy etildi.</p>
+                                        <p class="text-sm">Ushbu xususiyat test paytida model ishlashini yaxshiladi va klinik jihatdan intuitiv o'zgaruvchi qo'shdi.</p>
+                                    </div>
+                                    <div>
+                                        <div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
+                                            <pre># Yangi xususiyat yaratish
+df['risk_score'] = df['chol'] * df['oldpeak']
+
+# Qo'shimcha xususiyatlar
+df['age_chol_interaction'] = df['age'] * df['chol']
+df['bp_ratio'] = df['trestbps'] / df['chol']</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">Ma'lumotlar To'plamini Qisqartirish va Optimallashtirish</h3>
+                        
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Optimallashtirishlar</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div>
+                                    <h5 class="font-medium mb-2">Ortiqcha xususiyatlarni olib tashlash:</h5>
+                                    <p class="text-sm">Maqsad bilan past korrelatsiyaga ega yoki bir-biriga o'xshash ma'noga ega o'zgaruvchilar chiqarib tashlandi.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Ko'p chiziqlilikni kamaytirish:</h5>
+                                    <p class="text-sm">Bir-biri bilan kuchli korrelatsiyaga ega xususiyatlar iterativ tarzda sinovdan o'tkazildi.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium mb-2">Stratifikatsiyalangan namuna olish:</h5>
+                                    <p class="text-sm">Maqsadli yorliqlarda sinf muvozanatini saqlash uchun qo'llanildi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-4">Ma'lumotlar Sifatini Yaxshilash Natijalari</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full border-collapse border border-gray-300">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border border-gray-300 px-4 py-2 text-left">Kriteriy</th>
+                                        <th class="border border-gray-300 px-4 py-2 text-left">Takomillashtirishdan Oldin</th>
+                                        <th class="border border-gray-300 px-4 py-2 text-left">Takomillashtirishdan Keyin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Yo'qolgan qiymatlar</td>
+                                        <td class="border border-gray-300 px-4 py-2">Ba'zi kategorik maydonlarda 0.5%</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600">0%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Kodlash</td>
+                                        <td class="border border-gray-300 px-4 py-2">Xom kategoriya yorliqlari</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600">Bir issiq kodlash</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Masshtablash</td>
+                                        <td class="border border-gray-300 px-4 py-2">Mos kelmaydigan miqyoslar</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600">Min-Max normallashtirilgan [0–1]</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Xususiyat ortiqchaligi</td>
+                                        <td class="border border-gray-300 px-4 py-2">Ba'zi korrelyatsiyalangan xususiyatlar</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600">Xususiyat tanlash orqali qisqartirildi</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Model aniqligi (Tasdiqlash)</td>
+                                        <td class="border border-gray-300 px-4 py-2">~77%</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600">~82%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">AUC ball</td>
+                                        <td class="border border-gray-300 px-4 py-2">~0.79</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600">~0.85</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4 p-4 bg-white rounded-lg">
+                            <p class="text-sm"><strong>Muhim:</strong> Ushbu yaxshilanishlar haddan tashqari moslashishsiz erishildi, bu modelning ko'rilmagan ma'lumotlarga yaxshi umumlashtirilishini ta'minladi.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-b4" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI Yechimining Samaradorligini Baholash</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Baholash Metrikalari va Natijalar</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse border border-gray-300">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border border-gray-300 px-4 py-2 text-left">Metrika</th>
+                                        <th class="border border-gray-300 px-4 py-2 text-left">Dastlabki Model</th>
+                                        <th class="border border-gray-300 px-4 py-2 text-left">Takomillashtirilgan Model</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-row">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Aniqlik</td>
+                                        <td class="border border-gray-300 px-4 py-2">0.79</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600 font-semibold">0.84</td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">AUC ball</td>
+                                        <td class="border border-gray-300 px-4 py-2">0.83</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600 font-semibold">0.88</td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Aniqlik (Sinf = 1)</td>
+                                        <td class="border border-gray-300 px-4 py-2">0.82</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600 font-semibold">0.87</td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">Eslatma (Sinf = 1)</td>
+                                        <td class="border border-gray-300 px-4 py-2">0.77</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600 font-semibold">0.82</td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="border border-gray-300 px-4 py-2 font-medium">F1 ball (Sinf = 1)</td>
+                                        <td class="border border-gray-300 px-4 py-2">0.79</td>
+                                        <td class="border border-gray-300 px-4 py-2 text-green-600 font-semibold">0.84</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Ishlash Ko'rsatkichlari</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Aniqlik</span>
+                                    <span class="text-sm font-medium">84%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar bg-green-500 h-2 rounded-full" style="--progress-width: 84%; width: 84%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">AUC Ball</span>
+                                    <span class="text-sm font-medium">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar bg-blue-500 h-2 rounded-full" style="--progress-width: 88%; width: 88%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">F1 Ball</span>
+                                    <span class="text-sm font-medium">84%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar bg-purple-500 h-2 rounded-full" style="--progress-width: 84%; width: 84%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-700 mb-4">Real Dunyodagi Ta'sir va Foydalanish</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-medium mb-2">Klinik Foyda</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Yurak kasalligini erta aniqlash</li>
+                                    <li>• Yuqori xavfli bemorlarni birinchi o'ringa qo'yish</li>
+                                    <li>• Klinik vaqtni tejash</li>
+                                    <li>• Qaror qabul qilishni qo'llab-quvvatlash</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Texnik Xususiyatlar</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Tushuntiriladigan model (logistik regressiya)</li>
+                                    <li>• Raqamli platformalarga integratsiya</li>
+                                    <li>• Shaffoflik va ishonch</li>
+                                    <li>• Kasalxonalar uchun ideal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-red-700 mb-4">Cheklovlar</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>• Ma'lumotlar to'plami hajmi (~300 qator)</li>
+                                <li>• Turmush tarzi omillari yo'q</li>
+                                <li>• Faqat ikkilik chiqish (mavjud/yo'q)</li>
+                                <li>• Umumlashtirish cheklovi</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-blue-700 mb-4">Takomillashtirish Tavsiyalari</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>• Kattaroq va xilma-xil ma'lumotlar to'plami</li>
+                                <li>• Qo'shimcha xususiyatlar (genetik, ijtimoiy)</li>
+                                <li>• Ansambl modellarni o'rganish</li>
+                                <li>• Avtomatlashtirilgan xususiyat tanlash</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-c" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">SI Yechimini Ishlab Chiqish</h2>
+                
+                <div class="prose max-w-none">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-8">
+                        <p class="text-lg leading-relaxed">
+                            SI yo'nalishiga ixtisoslashgan tashkilotdagi amaliyotim davomida, muayyan biznes stsenariyni hal qilish uchun bashoratli SI yechimini ishlab chiqish vazifasi menga topshirildi. Maqsad nazorat ostidagi o'rganish usullaridan - jumladan chiziqli regressiya va logistik regressiyadan foydalanib - tarixiy ma'lumotlarni tahlil qilish, bashoratlar yaratish va modellarning samaradorligini baholash edi.
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-semibold mb-6">Model Ishlab Chiqish Jarayoni</h3>
+
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h4 class="font-semibold text-green-600 mb-4">1. Chiziqli Regressiya Modeli</h4>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-lg mb-2">Model O'qitish</h5>
+                                <p class="text-sm">
+                                    Tanlangan raqamli xususiyatlarga asoslangan uzluksiz natijalarni bashorat qilish uchun chiziqli regressiya modeli o'qitildi. Scikit-learn'ning LinearRegression() funksiyasidan foydalanildi.
+                                </p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-lg mb-2">Bashorat va Baholash</h5>
+                                <p class="text-sm">
+                                    Model test to'plami uchun qiymatlarni bashorat qildi va quyidagi mezonlar yordamida baholandi:
+                                </p>
+                                <ul class="list-disc list-inside text-sm mt-2 space-y-1">
+                                    <li>O'rtacha mutlaq xato (MAE)</li>
+                                    <li>O'rtacha kvadratik xato ildizi (RMSE)</li>
+                                    <li>R-kvadrat (R²) balli</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h4 class="font-semibold text-purple-600 mb-4">2. Logistik Regressiya Modeli</h4>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-lg mb-2">Model O'qitish</h5>
+                                <p class="text-sm">
+                                    Ikkilik tasnif vazifalari uchun (masalan, ikkilik kategoriyalarni bashorat qilish) LogisticRegression(solver='liblinear') yordamida logistik regressiya modeli amalga oshirildi.
+                                </p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-medium text-lg mb-2">Bashorat va Baholash</h5>
+                                <p class="text-sm">
+                                    Logistik modelning ishlashi quyidagi ko'rsatkichlar yordamida baholandi:
+                                </p>
+                                <ul class="list-disc list-inside text-sm mt-2 space-y-1">
+                                    <li>Aniqlik balli (Accuracy score)</li>
+                                    <li>Chalkashlik matritsasi (Confusion matrix)</li>
+                                    <li>Tasnif hisoboti (Classification report)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-4">Python Kod Namunasi</h4>
+                            <div class="bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                                <pre><code># Ma'lumotlarni yuklash va tayyorlash
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
+
+# Ma'lumotlarni bo'lish
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Xususiyatlarni masshtablash
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Logistik regressiya modeli
+log_model = LogisticRegression(solver='liblinear')
+log_model.fit(X_train_scaled, y_train)
+
+# Bashorat va baholash
+y_pred = log_model.predict(X_test_scaled)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Aniqlik: {accuracy:.2f}")
+print(classification_report(y_test, y_pred))</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold mb-6">Ma'lumotlar Manbasi (Data Source)</h3>
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-indigo-700 mb-4">Ma'lumotlar Manbasi (Data Source)</h4>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-1">
+                            <h5 class="font-medium mb-2">UCI Yurak Kasalligi Ma'lumotlar To'plami (UCI Heart Disease Data Set)</h5>
+                            <p class="text-sm">Ishonchli va keng qo'llaniladigan ma'lumotlar to'plami (Reliable and widely used data set).</p>
+                        </div>
+                        <div>
+                            <a href="https://archive.ics.uci.edu/dataset/45/heart+disease" 
+                               class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+                               target="_blank">
+                                Ma'lumotlar Manbasi (Data Source)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section-card bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">Manbalar Ro'yxati</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Asosiy Adabiyotlar</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="border-l-4 border-blue-500 pl-3">
+                                <p><strong>Bishop, C.M.</strong> (2006). Pattern Recognition and Machine Learning. Springer, New York.</p>
+                            </div>
+                            <div class="border-l-4 border-green-500 pl-3">
+                                <p><strong>Goodfellow, I., Bengio, Y. and Courville, A.</strong> (2016). Deep Learning. MIT Press, Cambridge.</p>
+                            </div>
+                            <div class="border-l-4 border-purple-500 pl-3">
+                                <p><strong>Russell, S. and Norvig, P.</strong> (2010). Artificial Intelligence: A Modern Approach. 3rd ed. Pearson.</p>
+                            </div>
+                            <div class="border-l-4 border-orange-500 pl-3">
+                                <p><strong>Mitchell, T.M.</strong> (1997). Machine Learning. McGraw-Hill, Boston.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Ilmiy Maqolalar va Resurslar</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="border-l-4 border-red-500 pl-3">
+                                <p><strong>LeCun, Y., Bengio, Y. and Hinton, G.</strong> (2015). "Deep learning", Nature, 521(7553), pp.436-444.</p>
+                            </div>
+                            <div class="border-l-4 border-yellow-500 pl-3">
+                                <p><strong>UC Irvine Machine Learning Repository</strong> (2021). Heart Disease Data Set.</p>
+                            </div>
+                            <div class="border-l-4 border-indigo-500 pl-3">
+                                <p><strong>scikit-learn</strong> (2021). User Guide. Available at: https://scikit-learn.org/</p>
+                            </div>
+                            <div class="border-l-4 border-pink-500 pl-3">
+                                <p><strong>NIST</strong> (2019). "The 2019 AI Index Report". Available at: https://aiindex.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const closeSidebar = document.getElementById('close-sidebar');
+        
+        function openSidebar() {
+            sidebar.classList.remove('sidebar-hidden');
+            sidebarOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSidebarFunc() {
+            sidebar.classList.add('sidebar-hidden');
+            sidebarOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openSidebar);
+        }
+        
+        if (closeSidebar) {
+            closeSidebar.addEventListener('click', closeSidebarFunc);
+        }
+        
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', closeSidebarFunc);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    if (window.innerWidth < 1024) {
+                        closeSidebarFunc();
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                sidebar.classList.remove('sidebar-hidden');
+                sidebarOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            } else {
+                sidebar.classList.add('sidebar-hidden');
+                sidebarOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        if (window.innerWidth < 1024) {
+            sidebar.classList.add('sidebar-hidden');
+        }
+    </script>
+</body>
+</html>
