@@ -967,25 +967,6 @@
                 </div>
             </section>
 
-            <!-- Charts Section -->
-            <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                <!-- Age Distribution Chart -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Yosh Taqsimoti</h3>
-                    <div class="chart-container">
-                        <canvas id="ageDistributionChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Income vs Purchase Amount Chart -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Daromad va Xarid Miqdori</h3>
-                    <div class="chart-container">
-                        <canvas id="incomeVsPurchaseChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
             <section id="section-b" class="section-card bg-white rounded-xl shadow-lg p-8 mb-8">
                 <h2 class="text-3xl font-bold text-primary mb-6">SI Loyihasining Maqsadlarini Aniqlash</h2>
 
@@ -1051,10 +1032,6 @@
                                         <p class="text-sm">Yurak kasalligi xavfini erta bashorat qilish proaktiv
                                             aralashuvlarga yo'naltiradi.</p>
                                     </div>
-                                    <div>
-                                        <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
-                                        <p class="text-sm">Modelni ishlab chiqish 4 hafta ichida yakunlanadi.</p>
-                                    </div>
                                 </div>
                             </div>
 
@@ -1079,11 +1056,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-4">
-                                    <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
-                                    <p class="text-sm">Ma'lumotlarni tayyorlash jarayoni birinchi 7 kun ichida
-                                        yakunlanadi.</p>
-                                </div>
                             </div>
 
                             <div class="bg-purple-50 p-6 rounded-lg">
@@ -1104,11 +1076,6 @@
                                             og'rig'i turi, xolesterin, yosh, qon bosimi).</p>
                                     </div>
                                 </div>
-                                <div class="mt-4">
-                                    <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
-                                    <p class="text-sm">Xususiyatlarni tanlash va tahlil 2-haftaning oxiriga qadar
-                                        yakunlanadi.</p>
-                                </div>
                             </div>
 
                             <div class="bg-orange-50 p-6 rounded-lg">
@@ -1125,10 +1092,6 @@
                                         <p class="text-sm">Guruhlar bo'yicha bashorat ishlashida >10% farq ko'rsatadigan
                                             modellardan qochish.</p>
                                     </div>
-                                </div>
-                                <div class="mt-4">
-                                    <h5 class="font-medium mb-2">Vaqt bilan cheklangan:</h5>
-                                    <p class="text-sm">Adolat tekshiruvlari 4-haftaga qadar integratsiya qilinadi.</p>
                                 </div>
                             </div>
                         </div>
@@ -1221,7 +1184,7 @@
                             <div class="bg-green-50 p-6 rounded-lg">
                                 <h4 class="font-semibold text-lg mb-3">Ma'lumotlar Xususiyatlari</h4>
                                 <ul class="space-y-2 text-sm">
-                                    <li>• <strong>Format:</strong> CSV (vergul bilan ajratilgan qiymatlar)</li>
+                                    <li>• <strong>Format:</strong> UCI</li>
                                     <li>• <strong>Turi:</strong> Tuzilgan ma'lumotlar</li>
                                     <li>• <strong>O'zgaruvchilar:</strong> Raqamli va kategorik aralashmasi</li>
                                     <li>• <strong>Platformadan mustaqil:</strong> Pandas bilan oson import</li>
@@ -1261,6 +1224,25 @@
                         </div>
                     </div>
 
+                    <img src="./image.png" class="w-full" alt="">
+
+                                            <!-- Charts Section -->
+                                            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                                                <!-- Age Distribution Chart -->
+                                                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                                    <h3 class="text-xl font-bold text-gray-900 mb-4">Yosh Taqsimoti</h3>
+                                                    <div class="chart-container">
+                                                        <canvas id="ageDistributionChart"></canvas>
+                                                    </div>
+                                                </div>
+                                            
+                                                <!-- Income vs Purchase Amount Chart -->
+                                                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                                    <h3 class="text-xl font-bold text-gray-900 mb-4">Daromad va Xarid Miqdori</h3>
+                                                    <div class="chart-container">
+                                                        <canvas id="incomeVsPurchaseChart"></canvas>
+                                                    </div>  </div>      </div>
+
                     <div class="mb-8">
                         <h3 class="text-2xl font-semibold mb-4">Ma'lumotlarni Tayyorlash Jarayoni</h3>
 
@@ -1280,12 +1262,7 @@
                                     <div>
                                         <h5 class="font-medium mb-2">Kod namunasi:</h5>
                                         <div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
-                                            <pre>import pandas as pd
-import numpy as np
-
-# Ma'lumotlarni yuklash
-df = pd.read_csv('heart_disease.csv')
-
+                                            <pre>
 # Yo'qolgan qiymatlarni tekshirish
 print(df.isnull().sum())
 
