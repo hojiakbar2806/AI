@@ -1967,35 +1967,7 @@ print(classification_report(y_test, y_pred))</code></pre>
                                 </ul>
                             </div>
                         </div>
-            
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-semibold text-lg mb-4">Python Kod Namunasi</h4>
-                            <div class="bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                                <pre><code># Ma'lumotlarni yuklash va tayyorlash
-            from sklearn.model_selection import train_test_split
-            from sklearn.preprocessing import StandardScaler
-            from sklearn.linear_model import LinearRegression, LogisticRegression
-            from sklearn.metrics import accuracy_score, classification_report
-            
-            # Ma'lumotlarni bo'lish
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-            
-            # Xususiyatlarni masshtablash
-            scaler = StandardScaler()
-            X_train_scaled = scaler.fit_transform(X_train)
-            X_test_scaled = scaler.transform(X_test)
-            
-            # Logistik regressiya modeli
-            log_model = LogisticRegression(solver='liblinear')
-            log_model.fit(X_train_scaled, y_train)
-            
-            # Bashorat va baholash
-            y_pred = log_model.predict(X_test_scaled)
-            accuracy = accuracy_score(y_test, y_pred)
-            print(f"Aniqlik: {accuracy:.2f}")
-            print(classification_report(y_test, y_pred))</code></pre>
-                            </div>
-                        </div>
+        
                     </div>
                 </div>
                 <h3 class="text-2xl font-semibold mb-6">Ma'lumotlar Manbasi (Data Source)</h3>
